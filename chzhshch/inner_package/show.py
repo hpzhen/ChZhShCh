@@ -1,7 +1,8 @@
 # -*- coding: UTF-8 -*-
 import matplotlib.ticker as ticker
 import matplotlib.pyplot as plt
-import matplotlib.finance as mpf
+import mpl_finance as mpf
+# from mpl_finance import quotes_historical_yahoo
 import numpy as np
 from pandas import Series, DataFrame
 # http://blog.csdn.net/xiaodongxiexie/article/details/53123371

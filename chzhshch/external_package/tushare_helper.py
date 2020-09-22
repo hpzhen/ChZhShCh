@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import tushare as ts
 from datetime import datetime, date, time
+import QUANTAXIS as QA
 
 # 单例
 class Singleton(object):
@@ -40,8 +41,9 @@ class TushareHelper(object):
         # 简版数据
         self.data_frame_ma_mini = {"index":[], "index_date":[], "short":[], "long":[]}
     def __bar(self):
-        self.data_frame = ts.bar(code=self.code, conn=TushareConn.conn, start_date=self.start, end_date=self.end,
-                                 freq=self.freq, asset=self.asset)
+        # self.data_frame = ts.bar(code=self.code, conn=TushareConn.conn, start_date=self.start, end_date=self.end,
+        #                          freq=self.freq, asset=self.asset)
+        self.data_frame = QA.QA.QA_fetch_stock_day(self.code, self.start, self.end, format='pd')
     def data_transfer(self):
         self.__bar()
         list_index = 0
